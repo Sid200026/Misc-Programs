@@ -1,0 +1,37 @@
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+
+React Router gives us three components Route Link and BrowserRouter
+
+Route Component
+
+In this component we have two parameters
+
+1. path: we need to specify the path
+2. component: which component the user needs to see
+
+    render() {
+        return(
+            <div>
+                <h1>Hello</h1>
+                <Router>
+                    <Route path="/name" component = {Name} />
+                    <Route path="/age" component = {Age} />
+                </Router>
+            </div>
+        )
+    }
+
+<Route path="/name" component = {Name} />
+<Route path="/name/age" component = {Age} />
+
+However on running this we can find that Name and Age components are rendered 
+To avoid this we use the attribute exact so that only that exact URL renders that component
+
+Added Navigation Using Link Component
+
+<Link to="/">Users</Link>
+
+<Route path="users/:id" component={Users} />
+
+This will pass the id as props to component Users
+/users/5 => This will pass 5 as props

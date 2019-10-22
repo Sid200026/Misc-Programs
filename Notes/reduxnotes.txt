@@ -1,0 +1,121 @@
+				INDEX.JS
+
+import { createLogger } from redux-logger
+import { Provider } from react-redux
+import { createStore, combineReducers, applyMiddleware } from redux
+import * as reducers from './redux/reducer.js'
+
+const rootReducer = combineReducers(reducers);
+
+const logger = createLogger();
+
+const store = createStore(rootReducer, applyMiddleware(logger))
+
+ReactDOM.render(
+		<Provider store = {store}>
+			<App />
+		</Provider>
+		, document.getElementById('root')
+	);
+
+
+In redux we have three kind of files
+
+actions.js => send information from our application to the store
+reducers.js => specifies how the application's state should change in
+	       response to an action
+constants.js => Used to define the actions to be performed by the
+		application. Also used to remove any typo mistakes
+
+				CONSTANTS.JS
+
+export const action1_name = 'action1_name'
+export const action2_name = 'action2_name'
+
+				ACTIONS.JS
+	
+import { action1_name, action2_name } from ./constants
+
+export const action_changeName = () => {
+	return{
+		type: action1_name,
+	};
+};			
+
+export const action_addUser = (username, password) => {
+	return{
+		type: action2_name,
+		payload: {
+				usname: username,
+				passwd : password,
+			}
+	};
+};
+
+				REDUCERS.JS
+				
+Here we will define how our state should change in response to the
+application's actions
+
+import { action1_name, action2_name } from './constants'
+
+const initialStateOfUser = {
+	usname : 'default',
+	passwd : 'passwd',
+}
+
+// We use default arguments to prevent any abnormal behaviour of the reducer
+
+// Here instead of modifying the current state we return a new state
+
+export const AddUser = (state = initialStateOfUser, action = {} ) => {
+	switch(action.type) {
+		case action2_name:
+			return {...state, usname: action.payload.usname, passwd: action.payload.passwd };
+		default:
+			return state
+	}
+}
+
+
+				APP.JS
+				
+import { connect } from 'react-redux'
+import { action_changeName, action_changeaddUser } from ../Redux/actions
+
+mapStateToProps : Provides value from the store to our application as props
+mapDispatchToProps : Provides a way to change the state of our store from the application using actions
+
+const mapStateToProps = ( state ) => {
+	return{
+		usname : state.AddUser.usnmae,
+		pwd : state.AddUser.passwd,
+	};
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return{
+		addNewUser: (usname, pwd) => dispatch(action_changeaddUser(usname, pwd)),
+	};
+}
+
+
+class App extends Component {
+
+To update the state, we can call addNewUser and pass the new username and password:  this.props.addNewUser(usname, pwd)
+
+To access the username or password we can do this.props.usname, this.props.pwd;
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(app);
+
+
+For asynchronous calls we use redux thunk
+Redux thunk is a middleware which can handles these calls
+
+In index.js
+
+import thunk from 'redux-thunk';
+
+applyMiddleWare(thunk);

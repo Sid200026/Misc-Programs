@@ -1,0 +1,51 @@
+This note is in Java
+
+For implementing Regular Expressions in Java, we need two classes
+Pattern and Matcher
+
+import java.util.regex.*;
+
+Pattern p = Pattern.create("the");
+
+This will find all the patterns that have the word the
+However this is case sensitive
+
+To make it case sensitive we have two ways
+
+Pattern p = Pattern.compile("the", Pattern.CASE_INSENSITIVE);
+
+OR
+
+Pattern p =Pattern.compile("(?i)(the)")
+
+WE HAVE CREATED A PATTERN. NOW WE HAVE TO MATCH IT WITH A GIVEN STRING
+
+For this we will be use the matcher class
+
+Matcher m = pattern.matcher("The sky is blue today. The water is also blue. The world is blue");
+
+find() is used to search for multiple occurence of pattern in the string
+start() is used to get the first index when the pattern was matched
+end()-1 wll give the last index
+groupCount() is used to find total number if matched patterns in the string
+
+while(m.find())
+{
+    Sopln(m.start(), m.last()-1);  // First and last index
+}
+
+Split based on some pattern
+
+String delimiter = "\\d"     \d is regex for digits
+String str = "A1BC2DEFR4";
+Pattern p = Pattern.compile(delimiter, Pattern.CASE_INSENSITIVE);
+String result[] = pattern.split(str);
+for(String s : result){
+    Sopln(s);
+}
+
+OUTPUT
+
+A
+BC
+DEFR

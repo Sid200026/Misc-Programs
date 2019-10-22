@@ -1,0 +1,16 @@
+To convert string to integer in C++ we use stoi function in the string library
+#include<string>
+int main()
+{
+    string a="12345";
+    int b=stoi(a); // This will convert string to integer
+}
+
+To convert integer to string in C++ we use the to_string function in the string library
+
+#include<string>
+int main()
+{
+    int a=12345;
+    string b=to_string(a); // This will convert integer to string 
+}
