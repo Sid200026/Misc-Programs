@@ -3,6 +3,9 @@
 #include<vector>
 #include<algorithm>
 #include<stack>
+
+using namespace std;
+
 int weights[] = {
     1, // 0-1
     3, // 0-2
@@ -10,10 +13,21 @@ int weights[] = {
     4, // 1-4
     8, // 1-2
 };
-using namespace std;
+
+bool sortAccToWeight(int a1, int a2) {
+    return weights[a2-1]>weights[a1-1];
+}
 
 void sortStack(stack<int> &s) {
-    
+    vector<int> arr;
+    while(!s.empty()) {
+        arr.push_back(s.top());
+        s.pop();
+    }
+    sort(arr.begin(), arr.end(), sortAccToWeight);
+    for(auto i = arr.rbegin(); i!= arr.rend(); i++) {
+        s.push(*i);
+    }
 }
 
 class Graph {
@@ -46,6 +60,7 @@ void Graph::minspan(int start = 0) {
         if(s1.empty()) {
             break;
         }
+        sortStack(s1);
         start = s1.top();
     }
 }
@@ -60,7 +75,7 @@ int main() {
     v1.clear();
     v1.push_back(0);
     v1.push_back(2);
-    v1.push_back(5);
+    v1.push_back(4);
     graph.addNode(1,v1);
     v1.clear();
     v1.push_back(0);
@@ -71,6 +86,6 @@ int main() {
     graph.addNode(3,v1);
     v1.clear();
     v1.push_back(1);
-    graph.addNode(5,v1);
+    graph.addNode(4,v1);
     graph.minspan();
 }
