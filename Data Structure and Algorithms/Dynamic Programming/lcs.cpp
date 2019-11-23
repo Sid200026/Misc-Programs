@@ -20,10 +20,8 @@ int lcs(string s1, string s2, int a, int b)
                 dp[b][a] = max(lcs(s1,s2,a-1,b), lcs(s1,s2,a,b-1));
                 return dp[b][a];
             }
-        }
-        
+        }   
     }
-    
 }
 
 int main()
