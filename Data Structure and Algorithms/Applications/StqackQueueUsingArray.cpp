@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+#define arrsize 20
 
 class stackQueue
 {
@@ -7,7 +8,7 @@ private:
     int top;
     int front;
     int rear;
-    int arr[2];
+    int arr[20];
 public:
     stackQueue();
     bool isEmpty();
@@ -16,43 +17,37 @@ public:
     int Pop();
     int GetTop();
     bool isQEmpty();
-    bool isQFull();
     void push(int);
     int pop();
 };
  
 stackQueue::stackQueue()
 {
-    top = 50;
+    top = -1;
     rear = -1;
     front = -1;
 }
 
 bool stackQueue::isEmpty()
 {
-    return top == 50;
+    return top == -1;
 }
 
 bool stackQueue::isQEmpty()
 {
-    return ((rear==front && front==-1) || (rear>front));
+    return ((rear==front && front==-1) || (front>rear));
 }
 
 bool stackQueue::isFull()
 {
-    return top == rear;
-}
-
-bool stackQueue::isQFull()
-{
-    return top==rear;
+    return top + rear == arrsize - 2;
 }
 
 void stackQueue::Push(int data)
 {
     if(!isFull())
     {
-        arr[--top] = data;
+        arr[arrsize-1-(++top)] = data;
     }
     else
     {
@@ -64,7 +59,7 @@ int stackQueue::Pop()
 {
     if(!isEmpty())
     {
-        return arr[top++];
+        return arr[arrsize-1-(top--)];
     }
     else
     {
@@ -73,13 +68,13 @@ int stackQueue::Pop()
     }
 }
 
-void stackQueue::push(int data)
+void stackQueue::push(int data) //enqueue
 {
     if(!isFull())
     {
-        if(front==-1)
-            rear++;
-        arr[++front] = data;
+        if(rear==-1)
+            front=0;
+        arr[++rear] = data;
     }
     else
     {
@@ -87,11 +82,11 @@ void stackQueue::push(int data)
     }
 }
 
-int stackQueue::pop()
+int stackQueue::pop() //dequeue
 {
-    if(!isEmpty())
+    if(!isQEmpty())
     {
-        return arr[rear++];
+        return arr[front++];
     }
     else
     {
@@ -104,7 +99,7 @@ int stackQueue::GetTop()
 {
     if(!isEmpty())
     {
-        return arr[top];
+        return arr[arrsize - 1 -top];
     }
     else
     {
