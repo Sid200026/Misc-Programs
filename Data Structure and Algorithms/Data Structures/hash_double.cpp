@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 int hashfunc(int key, int size)
@@ -6,7 +6,7 @@ int hashfunc(int key, int size)
     return key % size;
 }
 
-int hash2(int key, int size)
+int hash2(int key, int size) // hash2 cannot be 0
 {
     return 1+key%size;
 }
