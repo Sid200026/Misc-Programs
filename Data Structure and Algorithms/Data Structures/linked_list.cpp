@@ -22,6 +22,7 @@ public:
     void deleteend();
     bool search(int);
     void swap(int);
+    void removeduplicated();
 };
 
 linked_list::linked_list()
@@ -29,6 +30,27 @@ linked_list::linked_list()
     head = NULL;
     cur = head;
     prev = head;
+}
+
+void linked_list::removeduplicated()
+{
+    cur = head;
+    while(cur->next!=NULL)
+    {
+        node *temp = cur->next;
+        prev = cur;
+        while(temp!=NULL)
+        {
+            if(temp->data==cur->data) // Delete temp
+            {
+                prev->next = temp->next;
+                delete temp;
+            }
+            prev = temp;
+            temp = temp->next;
+        }
+        cur = cur->next;
+    }
 }
 
 void linked_list::swap(int pos)
@@ -172,8 +194,10 @@ int main()
     ll.addbegin(2);
     ll.addbegin(1);
     ll.addbegin(0);
+    ll.addbegin(1);
+    ll.addbegin(0);
     ll.traverse();
-    ll.reverse(ll.head);
+    ll.removeduplicated();
     cout<<endl;
     ll.traverse();
     return 0;
