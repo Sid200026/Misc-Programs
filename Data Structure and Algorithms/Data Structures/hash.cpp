@@ -1,6 +1,6 @@
 /* HASH with overwrite */
 
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 bool prime(int n)
@@ -32,7 +32,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     /* int arr[5] = {500,200,350,60,8}; */
-    string arr[5] = {"Rajalaxmi", "Siddharth", "Chikimiki"};
+    string arr[5] = {"Singha", "Siddharth", "Roy"};
     string hash[200];
     for(int i= 0;i<200;i++)
     {
