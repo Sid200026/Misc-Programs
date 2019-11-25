@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 /* Let the partition index be the first one */
@@ -8,25 +8,25 @@ int partition(int arr[], int first, int last)
     int i = first + 1;
     int index = last;
     int pivot = arr[first];
-    for(;i<last;i++)
+    for(;i<=index;i++)
     {
-        if(arr[i]<pivot)
+        if(arr[i]>pivot)
         {
             int temp = arr[i];
             arr[i] = arr[index];
             arr[index] = temp;
             index-- ;
+            i--;
         }
     }    
-    int temp = arr[i];
-    arr[i] = arr[index];
+    int temp = arr[first];
+    arr[first] = arr[index];
     arr[index] = temp;
     return index;
 }
 
 void quicksort(int arr[], int first, int last)
 {
-    last = last;
     if(first<last)
     {
         int a = partition(arr,first,last);
@@ -39,9 +39,9 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int arr[10] = {5,9,2,1,4,6,5,8,7,11};
-    quicksort(arr, 0, 9);
-    for(int i=0;i<10;i++)
+    int arr[20] = {5,4,3,2,1,4,5,6,4,3,7,7,9};
+    quicksort(arr, 0, 13);
+    for(int i=0;i<=13;i++)
     {
         cout<<arr[i]<<" ";
     }
