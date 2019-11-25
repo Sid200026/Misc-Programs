@@ -1,6 +1,0 @@
-Authentication refers to process of associating an incoming request with a set of identifying credentials
-Authentication is always run at the top of the view before any other code is allowed to proceed.
-
-The request.user property will typically be an instance of contrib.auth packages's User class
-
-The request.auth property is used for any additional authentication information like it may represent an auth token that was used with the request
