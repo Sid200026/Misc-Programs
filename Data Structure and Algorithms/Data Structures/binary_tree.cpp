@@ -30,7 +30,7 @@ public:
     void search(int);
     int findmin();
     int findmax();
-    void delete(int);
+    void deletetreehome(int);
 };
 
 binary_tree::binary_tree()
@@ -77,11 +77,11 @@ node* binary_tree::searchtree(int data, node *temp)
         }
         else if(data>temp->key)
         {
-            searchtree(data, temp->right);
+            return searchtree(data, temp->right);
         }
         else
         {
-            searchtree(data, temp->left);
+            return searchtree(data, temp->left);
         }
     }
     return temp;
@@ -157,6 +157,33 @@ node * binary_tree::insert(int data, node *temp)
     return a;
 }
 
+void binary_tree::deletetree(int data, node * temp)
+{
+    node* temp = searchtree(data, temp);
+    if(temp->left==NULL && temp->right==NULL)
+        delete temp;
+    else
+    {
+        if(temp->left==NULL)
+        {
+            temp->key = temp->right->key;
+            delete temp->right;
+        }
+        else if(temp->right==NULL)
+        {
+            temp->key = temp->left->key;
+            delete temp->left;
+        }
+        else
+        {
+            node* temp1 = findmintree(temp->right);
+            data = temp->key;
+            temp->key = temp1->key;
+            deletetree(data,temp->right);
+        }
+    }
+}
+
 void binary_tree::inorderprint()
 {
     inorder(root);
@@ -193,6 +220,11 @@ int binary_tree::findmax()
 int binary_tree::findmin()
 {
     return findmintree(root)->key;
+}
+
+void binary_tree::deletetreehome(int data)
+{
+    deletetree(data, head);
 }
 
 int main()
