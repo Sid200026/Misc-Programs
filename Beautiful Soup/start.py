@@ -48,3 +48,11 @@ soup = BeautifulSoup(html_doc, 'html.parser')
 # find_all returns a list of all matching cases
 
 # print(soup.a.parent.string)
+
+# for link in soup.find_all('a'):
+#     print(link.get('href'))
+
+# To get all the links starting with a tag
+
+# print(soup.get_text())
+# Get the text of the html_doc
