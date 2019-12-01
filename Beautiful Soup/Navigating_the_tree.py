@@ -20,3 +20,23 @@ soup = BeautifulSoup(html_doc, 'lxml')
 # print(soup.text)
 # for textsoup in soup.find_all('a'):
 #     print(textsoup)
+
+# print(soup.html.contents[2].p)
+# print(len(soup.html.contents))
+
+# print(soup.head.contents)
+# print(soup.head.contents[0])
+# titletag = soup.head.contents[0]
+# print(titletag.contents)
+# titletext = titletag.contents[0]
+# print(titletext)
+
+# print(soup.head.title.string)
+
+# print(soup.contents)
+
+print(soup.body.children)
+
+for child in soup.body.children: # Returns a NavigableString or a Tag or a comment
+    print(type(child))
+    # print(child)
