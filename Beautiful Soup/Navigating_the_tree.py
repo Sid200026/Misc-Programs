@@ -37,6 +37,9 @@ soup = BeautifulSoup(html_doc, 'lxml')
 
 print(soup.body.children)
 
-for child in soup.body.children: # Returns a NavigableString or a Tag or a comment
-    print(type(child))
-    # print(child)
+# for child in soup.body.children: # Returns a NavigableString or a Tag or a comment
+#     # print(type(child))
+#     print(child)
+
+# for child in soup.body.descendants:
+#     print(child)
