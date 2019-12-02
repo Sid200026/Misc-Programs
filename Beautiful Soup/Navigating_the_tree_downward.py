@@ -26,7 +26,7 @@ soup = BeautifulSoup(html_doc, 'lxml')
 
 # print(soup.head.contents)
 # print(soup.head.contents[0])
-# titletag = soup.head.contents[0]
+titletag = soup.head.contents[0]
 # print(titletag.contents)
 # titletext = titletag.contents[0]
 # print(titletext)
@@ -35,11 +35,24 @@ soup = BeautifulSoup(html_doc, 'lxml')
 
 # print(soup.contents)
 
-print(soup.body.children)
+# print(soup.body.children)
 
-# for child in soup.body.children: # Returns a NavigableString or a Tag or a comment
-#     # print(type(child))
-#     print(child)
+# # for child in soup.body.children: # Returns a NavigableString or a Tag or a comment
+# #     # print(type(child))
+# #     print(child)
 
-# for child in soup.body.descendants:
-#     print(child)
+# # for child in soup.body.descendants:
+# #     print(child)
+
+# print(len(list(soup.contents)))
+# print(len(list(soup.descendants)))
+
+# print(titletag.string)
+# print(soup.head.string)
+# print(soup.body.string)
+
+# for string in soup.strings:
+#     print(string)
+
+for string in soup.stripped_strings:
+    print(string)
