@@ -6,6 +6,8 @@ A collection of some data structures, algorithms come along with some codes for 
 
 [JavaScript Basics Notes](/JavaScript/JavaScript%20Basics/JS%20Notes%20-%20Basic.pdf)
 
+[How JavaScript Works](/JavaScript/How%20JavaScript%20Works/How%20JavaScript%20Works.pdf)
+
 #### Warning : Some of the codes in the Competitve folder may not work.
 
 
