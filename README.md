@@ -8,6 +8,8 @@ A collection of some data structures, algorithms come along with some codes for 
 
 [How JavaScript Works](/JavaScript/How%20JavaScript%20Works/How%20JavaScript%20Works.pdf)
 
+[Objects and Functions](/JavaScript/Objects%20and%20Functions/Objects%20and%20Fucntions.pdf)
+
 #### Warning : Some of the codes in the Competitve folder may not work.
 
 
