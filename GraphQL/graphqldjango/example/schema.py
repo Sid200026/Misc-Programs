@@ -133,44 +133,70 @@
 #     create_ingredient_2 = addNewIngredient.Field()
 
 
+# import graphene
+# from graphene_django.types import DjangoObjectType
+# from .models import Category, Ingredient
+# from django.contrib.auth.models import User
+# from graphql_jwt.decorators import login_required
+
+# class UserType(DjangoObjectType):
+#     class Meta:
+#         model = User
+
+
+
+# class createUser(graphene.Mutation):
+#     class Arguments:
+#         name = graphene.String(required = True)
+#         email = graphene.String(required = True)
+#         password = graphene.String(required = True)
+    
+#     user = graphene.Field(UserType)
+
+#     @login_required
+#     def mutate(self, info, name, email, password):
+#         user = User.objects.create_user(username=name, email=email, password=password)
+#         user.save()
+#         return createUser(user)
+
+# class Mutation(graphene.ObjectType):
+#     add_user = createUser.Field()
+
+# class Query:
+#     getUsers = graphene.List(UserType)
+#     me = graphene.Field(UserType)
+
+#     def resolve_getUsers(self, info, **kwargs):
+#         return User.objects.all()
+
+#     @login_required
+#     def resolve_me(self, info, **kwargs):
+#         user = info.context.user
+#         if user.is_anonymous:
+#             raise Exception("Not logged in")
+#         return user
+
+from graphene_django_extras import DjangoObjectType, DjangoFilterListField, DjangoListObjectField
+from django.contrib.auth.models import User
 import graphene
-from graphene_django.types import DjangoObjectType
-from .models import Category, Ingredient
 from django.contrib.auth.models import User
 from graphql_jwt.decorators import login_required
+from graphene_django_extras import DjangoListObjectField
 
 class UserType(DjangoObjectType):
     class Meta:
         model = User
+        filter_fields = {"id": ("exact",), "username": ("icontains", "iexact")}
 
-
-
-class createUser(graphene.Mutation):
-    class Arguments:
-        name = graphene.String(required = True)
-        email = graphene.String(required = True)
-        password = graphene.String(required = True)
-    
-    user = graphene.Field(UserType)
-
-    def mutate(self, info, name, email, password):
-        user = User.objects.create_user(username=name, email=email, password=password)
-        user.save()
-        return createUser(user)
-
-class Mutation(graphene.ObjectType):
-    add_user = createUser.Field()
-
-class Query:
-    getUsers = graphene.List(UserType)
-    me = graphene.Field(UserType)
-
-    def resolve_getUsers(self, info, **kwargs):
-        return User.objects.all()
+class Query(object):
+    me = DjangoListObjectField(UserType)
 
     @login_required
-    def resolve_me(self, info, **kwargs):
+    def resolve_me(self, info):
         user = info.context.user
         if user.is_anonymous:
             raise Exception("Not logged in")
         return user
+
+class Mutation(graphene.ObjectType):
+    pass
