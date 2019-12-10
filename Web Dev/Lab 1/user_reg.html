@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>HackOff</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">HackOff 2019</h1>
+        <p class="request">Please fill up this form below to register for the competition</p>
+        <form method="POST">
+            <div class="form">
+                <div class="show test">
+                    <div class="inp1">
+                        <label for="Name">Name</label>
+                        <input class="name" placeholder="Your Name..." type="text" required>
+                    </div>
+                    <div class="inp1">
+                        <label for="Name">Phone Number</label>
+                        <input class="name" placeholder="Your Phone Number..." type="tel" pattern="[0-9]{10}" required>
+                    </div>
+                    <div class="inp1">
+                        <label for="Name">Email</label>
+                        <input class="name bottom" placeholder="Your Email Address..." type="email" required>
+                    </div>
+                </div>
+                <div class="hide me">
+                    <div class="inp1">
+                        <label for="Name">Field of Interest</label>
+                        <select class="name" name="topic">
+                                <option value="Machine Learning">Machine Learning</option>
+                                <option value="Web Dev">Web Development</option>
+                                <option value="Android Dev">Android Development</option>
+                                <option value="Kernel Dev">Kernel Development</option>
+                        </select>
+                    </div>
+                    <div class="inp1">
+                        <label for="Name">Github Link</label>
+                        <input class="name" placeholder="Your Github Profile..." type="url" required>
+                    </div>
+                    <div class="inp1">
+                            <label for="Name">Upload your Resume</label>
+                            <input class="file" type="file">
+                        </div>
+                    <div class="inp1">
+                        <label for="Name">Why should we select you</label>
+                        <textarea class="text" name="message" rows=5"></textarea>
+                </div>
+                </div>
+            </div>
+            <div class="btn hide a">
+                <button class="submit" type="submit" value="Submit">Submit</button>
+            </div>
+            <div class="btn show b">
+                    <button class="submit" type="button" value="Submit" onclick=newPage()>Hack Details</button>
+                </div>
+            </form>
+            <div class="footer">
+                <h1 class="right">All Rights Reserved Hacktober</h1>
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
