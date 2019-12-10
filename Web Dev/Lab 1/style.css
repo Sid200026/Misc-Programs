@@ -16,7 +16,7 @@ body{
     width:100%;
     text-align: center;
     margin-top: 10px;
-    font-size: 80px;
+    font-size: 450%;
     color:lime;
     font-weight: 900;
     font-family: 'Amatic SC', cursive;
@@ -25,9 +25,9 @@ body{
     color:white;
     width:100%;
     text-align: center;
-    margin-top: 40px;
-    font-size: 25px;
-    margin-bottom: 40px;
+    margin-top: 2%;
+    font-size: 130%;
+    margin-bottom: 1%;
 }
 .inp1{
     display: flex;
@@ -81,12 +81,12 @@ label{
     font-weight: 300;
 }
 .footer{
-    background: rgb(180, 110, 5);
+    background: rgb(241, 198, 133);
     text-align: center;
-    height:40px;
-    position: fixed;
+    height:36px;
     width: 100%;
-    bottom: 0;
+    position: fixed;
+    bottom: 0px;
 }
 .right{
     font-weight: 100;
@@ -117,4 +117,36 @@ input[type='file'] {
 }
 .a{
     width:100%;
+}
+.aftersubmit{
+    display:none;
+    flex-direction: column;
+    margin-top: 13%;
+}
+.after{
+    color:white;
+    width:100%;
+    text-align: center;
+}
+.progress{
+    margin-left: 35%;
+    margin-right: 35%;
+    width:30%;
+    text-align: center;
+    color: white;
+    background: rgb(15, 15, 15);
+    position: relative;
+}
+.actual{
+    width:0%;
+    background: rgb(56, 16, 233);
+    height:100%;
+}
+.fixme{
+    position: absolute;
+    top:17%;
+    bottom: 6%;
+    width:100%;
+    text-align: center;
+    color: lime;
 }

@@ -10,56 +10,70 @@
 <body>
     <div class="container">
         <h1 class="heading">HackOff 2019</h1>
-        <p class="request">Please fill up this form below to register for the competition</p>
-        <form method="POST">
-            <div class="form">
-                <div class="show test">
-                    <div class="inp1">
-                        <label for="Name">Name</label>
-                        <input name="name" class="name" placeholder="Your Name..." type="text" required>
-                    </div>
-                    <div class="inp1">
-                        <label for="Name">Phone Number</label>
-                        <input name="phone" class="name" placeholder="Your Phone Number..." type="tel" pattern="[0-9]{10}" required>
-                    </div>
-                    <div class="inp1">
-                        <label for="Name">Email</label>
-                        <input name="email" class="name bottom" placeholder="Your Email Address..." type="email" required>
-                    </div>
+        <div class="final">
+            <p class="request">Please fill up this form below to register for the competition</p>
+            <div class="progress">
+                <div class="actual">
+                    <br>
+                    <br>
                 </div>
-                <div class="hide me">
-                    <div class="inp1">
-                        <label for="Name">Field of Interest</label>
-                        <select class="name" name="topic">
-                                <option value="Machine Learning">Machine Learning</option>
-                                <option value="Web Dev">Web Development</option>
-                                <option value="Android Dev">Android Development</option>
-                                <option value="Kernel Dev">Kernel Development</option>
-                        </select>
-                    </div>
-                    <div class="inp1">
-                        <label for="Name">Github Link</label>
-                        <input name="github" class="name" placeholder="Your Github Profile..." type="url" required>
-                    </div>
-                    <div class="inp1">
-                            <label for="Name">Upload your Resume</label>
-                            <input name="resume" class="file" type="file">
+                <p class="fixme">Your Progress</p>
+            </div>
+            <form method="POST">
+                <div class="form">
+                    <div class="show test">
+                        <div class="inp1">
+                            <label for="Name">Name</label>
+                            <input name="name" class="name" oninput="updateBar(15)" placeholder="Your Name..." type="text" required>
                         </div>
-                    <div class="inp1">
-                        <label for="Name">Why should we select you</label>
-                        <textarea class="text" name="message" rows=4    "></textarea>
+                        <div class="inp1">
+                            <label for="Name">Phone Number</label>
+                            <input name="phone" class="name" oninput="updateBar(30)" placeholder="Your Phone Number..." type="tel" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="inp1">
+                            <label for="Name">Email</label>
+                            <input name="email" class="name bottom" oninput="updateBar(45)" placeholder="Your Email Address..." type="email" required>
+                        </div>
+                    </div>
+                    <div class="hide me">
+                        <div class="inp1">
+                            <label for="Name">Field of Interest</label>
+                            <select oninput="updateBar(62)" class="name" name="topic">
+                                    <option value="Machine Learning">Machine Learning</option>
+                                    <option value="Web Dev">Web Development</option>
+                                    <option value="Android Dev">Android Development</option>
+                                    <option value="Kernel Dev">Kernel Development</option>
+                            </select>
+                        </div>
+                        <div class="inp1">
+                            <label for="Name">Github Link</label>
+                            <input oninput="updateBar(75)" name="github" class="name" placeholder="Your Github Profile..." type="url" required>
+                        </div>
+                        <div class="inp1">
+                                <label for="Name">Upload your Resume</label>
+                                <input oninput="updateBar(87)" name="resume" class="file" type="file">
+                            </div>
+                        <div class="inp1">
+                            <label for="Name">Why should we select you</label>
+                            <textarea oninput="updateBar(100)" class="text" name="message" rows=4"></textarea>
+                    </div>
+                    </div>
                 </div>
+                <div class="btn hide a">
+                    <button class="submit" type="button" value="Submit" onclick=finalSubmit()>Submit</button>
                 </div>
-            </div>
-            <div class="btn hide a">
-                <button class="submit" type="submit" value="Submit">Submit</button>
-            </div>
-            <div class="btn show b">
-                    <button class="submit" type="button" value="Submit" onclick=newPage()>Your Interests</button>
-            </div>
+                <div class="btn show b">
+                        <button class="submit" type="button" value="Submit" onclick=newPage()>Your Interests</button>
+                </div>
             </form>
+        </div>
+        <div class="aftersubmit">
+            <h1 class="after">Thank you for registering with us</h1>
+            <br>
+            <h1 class="after">We will let you know the results shortly</h1>
+        </div>
             <div class="footer">
-                <h1 class="right">All Rights Reserved Hacktober</h1>
+                <h1 class="right">All Rights Reserved</h1>
             </div>
     </div>
     <script src="script.js"></script>
