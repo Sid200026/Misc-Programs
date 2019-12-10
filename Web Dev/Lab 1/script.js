@@ -6,5 +6,5 @@ function newPage(){
     first.style.display = "none";
     second.style.display = "contents";
     fourth.style.display = "none";
-    third.style.display = "contents";
+    third.style.display = "flex";
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>HackOff</title>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -16,15 +16,15 @@
                 <div class="show test">
                     <div class="inp1">
                         <label for="Name">Name</label>
-                        <input class="name" placeholder="Your Name..." type="text" required>
+                        <input name="name" class="name" placeholder="Your Name..." type="text" required>
                     </div>
                     <div class="inp1">
                         <label for="Name">Phone Number</label>
-                        <input class="name" placeholder="Your Phone Number..." type="tel" pattern="[0-9]{10}" required>
+                        <input name="phone" class="name" placeholder="Your Phone Number..." type="tel" pattern="[0-9]{10}" required>
                     </div>
                     <div class="inp1">
                         <label for="Name">Email</label>
-                        <input class="name bottom" placeholder="Your Email Address..." type="email" required>
+                        <input name="email" class="name bottom" placeholder="Your Email Address..." type="email" required>
                     </div>
                 </div>
                 <div class="hide me">
@@ -39,15 +39,15 @@
                     </div>
                     <div class="inp1">
                         <label for="Name">Github Link</label>
-                        <input class="name" placeholder="Your Github Profile..." type="url" required>
+                        <input name="github" class="name" placeholder="Your Github Profile..." type="url" required>
                     </div>
                     <div class="inp1">
                             <label for="Name">Upload your Resume</label>
-                            <input class="file" type="file">
+                            <input name="resume" class="file" type="file">
                         </div>
                     <div class="inp1">
                         <label for="Name">Why should we select you</label>
-                        <textarea class="text" name="message" rows=5"></textarea>
+                        <textarea class="text" name="message" rows=4    "></textarea>
                 </div>
                 </div>
             </div>
@@ -55,8 +55,8 @@
                 <button class="submit" type="submit" value="Submit">Submit</button>
             </div>
             <div class="btn show b">
-                    <button class="submit" type="button" value="Submit" onclick=newPage()>Hack Details</button>
-                </div>
+                    <button class="submit" type="button" value="Submit" onclick=newPage()>Your Interests</button>
+            </div>
             </form>
             <div class="footer">
                 <h1 class="right">All Rights Reserved Hacktober</h1>
