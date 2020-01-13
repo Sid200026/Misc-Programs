@@ -1,0 +1,42 @@
+*{
+    background-color: rgb(186, 214, 238);
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.container{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.a{
+    color:red;
+}
+.b{
+    color: rgb(209, 29, 170);
+}
+.c{
+    color:rgb(0, 0, 0);
+}
+.d{
+    color:rgb(218, 117, 23);
+}
+.e{
+    color:rgb(224, 30, 30);
+}
+.f{
+    color: rgb(175, 140, 27);
+}
+h5{
+    margin:10px;
+    font-size: 25px;
+}
+.image{
+    width:560px;
+    height: auto;
+    border: none;
+}
+h1{
+    color:rgb(98, 43, 5);
+}

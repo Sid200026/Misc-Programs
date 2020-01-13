@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <div class="container">
+        <div class="holder">
+            <h1 class="heading">Travel Reservation Form</h1>
+            <p class="mandatory">* denotes mandatory</p>
+            <form method="POST">
+                <label for id="fname">Full Name*:</label>
+                <input required id="fname" type="text" placeholder="FirstName LastName"/>
+                <label for id="email">Email Address*:</label>
+                <input required id="email" type="email" placeholder="Email Address"/>
+                <label for id="tour">Select Tour Package*:</label>
+                <select required id="tour="cars">
+                    <option value="goa">Goa</option>
+                    <option value="chennai">Chennai</option>
+                    <option value="kolkata">Kolkata</option>
+                    <option value="delhi">Delhi</option>
+                </select>
+                <label for id="adate">Arrival Date*:</label>
+                <input required id="adate" type="date" placeholder="dd/mm/yyyy"/>
+                <label for id="person">Number of persons*:</label>
+                <input required id="person" type="number" placeholder="Number of persons"/>
+                <label for id="avail">What Would you like to avail*:</label>
+                <div>
+                    <input required type="checkbox" id="avail" name="p1" value="0">Boarding<br>
+                    <input type="checkbox" id="avail" name="p2" value="1">Fooding<br>
+                    <input type="checkbox" id="avail" name="p3" value="2">Sight-Seeing
+                </div>
+                <label for id="disc">Discount Coupon Code:</label>
+                <input id="disc" type="text" placeholder="Discount Coupon Code"/>
+                <label for id="term">Terms and Conditions:</label>
+                <div class="choice">
+                    <input required id="term" type="radio" name="termscond" value="Yes">Yes<br>
+                    <input required id="term" type="radio" name="termscond" value="No">No</input>
+                </div>
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

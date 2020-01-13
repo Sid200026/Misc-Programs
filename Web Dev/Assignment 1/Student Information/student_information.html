@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="student_information.css">
+    <title>Student Information</title>
+</head>
+<body>
+    <div class="container">
+        <form method="POST">
+            <div class="heading">
+                <h1>Student Information</h1>
+            </div>
+            <table class="inputAttributes">
+                <tr>
+                    <td><label for id="fname">First Name</label></td>
+                    <td><input id="fname" class="inp" type="text"/></td>
+                </tr>
+                <tr>
+                    <td><label for id="lname">Last Name</label></td>
+                    <td><input id="lname" class="inp" type="text"/></td>
+                </tr>
+                <tr>
+                    <td><label for id="phone">Phone</label></td>
+                    <td><input id="phone" class="inp" type="number"/></td>
+                </tr>
+                <tr>
+                    <td><label for id="section">Section</label></td>
+                    <td><input id="section" class="inp short" type="text"/></td>
+                </tr>
+                <tr>
+                    <td><label for id="email">Email</label></td>
+                    <td><input id="email" class="inp long" type="email"/></td>
+                </tr>
+            </table>
+            <div class="secondPart">
+                <label for id="goals">Explain your educational goals. Why are you at VIT and why have you enrolled in this class.</label>
+                <textarea type="text" id="goals" class="longInp" rows="5" cols="3"></textarea>
+                <label for id="exp">Describe your previous experience with computers.</label>
+                <textarea type="text" id="exp" class="longInp" rows="5" cols="3"></textarea>
+                <label for id="story">Share your personal story, introduce us to your family and friends and tell us about your hobbies and interests.</label>
+                <textarea type="text" id="story" class="longInp" rows="5" cols="3"></textarea>
+            </div>
+            <div>
+                <h2>Congratulations to all of you who successfully completed this page. You have one more
+                    hurdle to jump.</h2>
+            </div>
+            <div class="buttons">
+                <button class="btn" type="submit">Check In</button>
+                <button class="btn" type="reset">Clear</button class="btn">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
