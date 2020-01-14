@@ -1,0 +1,148 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body, html{
+    height:100%;
+    width:100%;
+    background: #310B14
+}
+/* color:#F6DBA6; */
+.container{
+    width:100%;
+    height:100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.head{
+    position: fixed;
+    color:rgb(255, 170, 0);
+    top:30px;
+    font-size: 30px;
+}
+.head h1{
+    font-weight: 100;
+}
+.body{
+    position: absolute;
+    top:130px;
+}
+.image1{
+    position: fixed;
+    width:32%;
+    height:300px;
+    left:1%;
+    background: url(westbengal.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #F6DBA6;
+}
+.image2{
+    position: fixed;
+    width:32%;
+    height:300px;
+    left:34%;
+    background: url(howrah.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #F6DBA6;
+    
+}
+.image3{
+    position: fixed;
+    width:32%;
+    height:300px;
+    right:1%;
+    background: url(calc.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #F6DBA6;
+}
+.image1:hover{
+    background: rgba(0, 0, 0, 0.116);
+}
+.image1:hover h3{
+    display: initial;
+    color:#f6dba6;
+    font-size: 25px;
+}
+.image2:hover{
+    background: rgba(0, 0, 0, 0.116);
+}
+.image2:hover h3{
+    display: initial;
+    color:#f6dba6;
+    font-size: 25px;
+}
+.image3:hover{
+    background: rgba(0, 0, 0, 0.116);
+}
+.image3:hover h3{
+    display: initial;
+    color:#f6dba6;
+    font-size: 25px;
+}
+.temp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.temp h3{
+    display: none;
+}
+.mid{
+    position: fixed;
+    bottom:210px;
+    left: 160px;
+    right:160px;
+    font-size: 20px;
+    color:#f6dba6;
+    text-align: center;
+}
+.links{
+    text-align: center;
+    position: fixed;
+    bottom:130px;
+    color:rgb(251, 251, 251)
+}
+.actual{
+    color:yellow
+}
+#first{
+    margin-top: 40px;
+    position: fixed;
+    left:300px;
+    color:wheat;
+    text-decoration: none;
+}
+#second{
+    margin-top: 40px;
+    position: fixed;
+    right: 300px;
+    color:wheat;
+    text-decoration: none;
+}
+#first:hover, #second:hover{
+    color:blue;
+}
+.footer{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    bottom:0px;
+    height:30px;
+    background: rgba(250, 192, 0, 0.109);
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 100;
+    color:rgb(255, 255, 255)
+}

@@ -1,0 +1,58 @@
+.image1{
+    position: fixed;
+    width:32%;
+    height:300px;
+    left:1%;
+    background: url(glacier.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #F6DBA6;
+}
+.image2{
+    position: fixed;
+    width:32%;
+    height:300px;
+    left:34%;
+    background: url(sunset.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #F6DBA6;
+    
+}
+.image3{
+    position: fixed;
+    width:32%;
+    height:300px;
+    right:1%;
+    background: url(aerial.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #F6DBA6;
+}
+.image1:hover{
+    background: rgba(0, 0, 0, 0.116);
+}
+.image1:hover h3{
+    display: initial;
+    color:#f6dba6;
+    font-size: 25px;
+}
+.image2:hover{
+    background: rgba(0, 0, 0, 0.116);
+}
+.image2:hover h3{
+    display: initial;
+    color:#f6dba6;
+    font-size: 25px;
+}
+.image3:hover{
+    background: rgba(0, 0, 0, 0.116);
+}
+.image3:hover h3{
+    display: initial;
+    color:#f6dba6;
+    font-size: 25px;
+}
