@@ -2,3 +2,4 @@ a.out
 .DS_Store
 *a.out
 JavaScript/*/node_modules
+*/*/*/*.class
