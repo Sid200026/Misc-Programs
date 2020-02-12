@@ -1,0 +1,50 @@
+[ 
+    { 
+       "date":10,
+       "news":{ 
+          "left":{ 
+             "img":"messi.jpeg",
+             "text":"Lionel Messi registered a hat-trick of assists against Real Betis. In the 5th minute of the match, Nabil Fekir attempted a shot in the Barcelona penalty area, when Clement Lenglet tried to block the shot. After checking with the VAR, the referee confirmed that Lenglet had deliberately used his arms to block the shot and awarded a penalty to Betis. Sergio Canales scored from the spot to give his side the lead in the game.",
+             "headline":"Messi dazzles against Real Betis",
+             "href":"https://ronaldo.com/football-news/video-messi-assists-barca-and-hero-to-villain-lenglet-beat-betis/"
+          },
+          "right":{ 
+             "img":"elon.jpg",
+             "text":"After the 2018 Cambridge Analytica Scandal, Facebook has surrounded itself from numerous controversies that have attracted a lot of criticism from celebrities around the world. While numerous celebrities have criticised the social media company in past, this time SpaceX founder Elon Musk has urged users to delete their Facebook accounts.",
+             "headline":"Elon Musk on Facebook",
+             "href":"https://inc42.com/buzz/elon-musk-calls-for-facebook-boycott-says-its-lame/"
+          },
+          "middle":{ 
+             "img":"sick.webp",
+             "text1":"The first person, the student from Thrissur in Kerala, who had tested positive for coronavirus has now reportedly recovered. The fresh samples taken from the patient have tested negative for the novel-coronavirus. The test of the repeated samples was conducted at National Institute of Virology (NIV) unit in Kerala. However, health officials are waiting for the results from NIV, Pune before making a final confirmation. He was tested positive for the virus on January, 30, this year.",
+             "text2":"India has so far confirmed three cases of the virus. Thousands with a travel history from China and other affected countries continue to remain under observation. Meanwhile, the death toll in China due to novel coronavirus epidemic has gone up to 908 and the number of confirmed cases rose over 40,000, Chinese health officials said on Monday. There were 97 deaths and 3,062 new confirmed cases of the lethal infection on Sunday, China\"s National Health Commission said. Ninety-one deaths were in Hubei province, the epicentre of the epidemic, two in Anhui, and one each in Heilongjiang, Jiangxi, Hainan and Gansu, according to the commission.A total of 908 people have died of the disease and 40,171 confirmed cases of the outbreak were reported in 31 provincial-level regions so far, it said.",
+             "headline":"Coronavirus in India",
+             "href":"https://www.indiatoday.in/india/story/first-person-infected-coronavirus-tested-negative-1645020-2020-02-10"
+          }
+       }
+    },
+    { 
+       "date":11,
+       "news":{ 
+          "left":{ 
+             "img":"pogba.jpg",
+             "text":"Manchester United midfielder Paul Pogba reportedly feels let down by the club ahead of what looks like being another summer of transfer speculation over his future. According to Sky Sports, the France international feels he was sold a ‘false prospectus’ when he joined Man Utd from Juventus back in the summer of 2016.",
+             "headline":"Pogba to Real Madrid",
+             "href":"https://www.caughtoffside.com/2020/02/10/pogba-real-madrid-transfer-man-utd-ace-feels-let-down/"
+          },
+          "right":{ 
+             "img":"court.webp",
+             "text":"The Supreme Court on Monday held that its five-judge bench can refer questions of law to a larger bench while exercising its limited power under review jurisdiction in the Sabarimala case. A bench headed by Chief Justice SA Bobde framed seven questions to be heard by a nine-judge Constitutional bench on issues relating to freedom of religion under the Constitution and faith.",
+             "headline":"Sabarimala Case",
+             "href":"https://www.indiatoday.in/india/story/sabarimala-case-supreme-court-refer-questions-law-larger-bench-1644910-2020-02-10"
+          },
+          "middle":{ 
+             "img":"australia.webp",
+             "text1":"Severe bushfires burned through parts of Western Australia on Sunday, with other areas of the state dealing with the aftermath of a powerful cyclone, while the country's east coast was facing potential life-threatening flash flooding. After months of destructive wildfires that have razed millions of hectares of land, Australia has been hit in recent weeks by wild weather that has alternately brought heavy downpours, hail storms, gusty winds and hot and dry air. About a dozen fires were burning in Western Australia (WA) on Sunday, with severe fire danger expected in several districts, according to fire services and the state's Bureau of Meteorology.",
+             "text2":"The state's upper parts were battling on Sunday the aftermath of a tropical cyclone Damien that made a landfall on Saturday afternoon, bringing gusty winds of up to 200 km per hour (124 miles per hour).  No immediate damages were reported and the cyclone was expected to weaken as it moved inland, but winds were seen to blow at more than 100 kph. Although Tropical #CycloneDamien has weakened significantly from the thrashing it gave Karratha and Dampier yesterday, areas around Tom Price and Paraburdoo are receiving significant rainfall and squally conditions, the state's Bureau of Meteorology said on its Twitter account.",
+             "headline":"Bushfires in Australia",
+             "href":"https://www.indiatoday.in/world/story/bushfires-cyclone-torrential-rain-hit-australia-coasts-1644663-2020-02-09"
+          }
+       }
+    }
+ ]

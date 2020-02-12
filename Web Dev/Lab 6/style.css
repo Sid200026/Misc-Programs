@@ -1,0 +1,129 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body,head{
+  width:100%;
+  height: 100%;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #404040;
+  }
+  
+  li {
+    float: left;
+    border-right:1px solid #bbb;
+  }
+  
+  li:last-child {
+    border-right: none;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: rgb(0, 0, 0);
+  }
+  .inpDate{
+      position: fixed;
+      top:13px;
+      right:10%;
+      width:200px;
+      border-radius: 100px;
+      padding:5px 20px;
+  }
+  .heading{
+      position: fixed;
+      top:6px;
+      left:44%;
+      right:40%;
+      font-size: 30px;
+      color:#F6F6E8;
+      font-family: cursive;
+      font-weight: 100;
+  }
+  .container{
+      display: flex;
+      width:100%;
+      margin-top:20px;
+      height:100%;
+      overflow-y: scroll;
+  }
+  .small{
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;   
+      flex-wrap: wrap;  
+  }
+  .main{
+      flex-grow: 1.7;
+      text-align: center;
+  }
+  .img-small{
+      align-self: center;
+      width:300px;
+      margin: 0px 20px;
+  }
+  .large{
+    width:600px;
+    height:auto;
+    align-self: center;
+    border: 2px solid black;
+  }
+  .text{
+    text-align: justify;
+    margin: 25px 19px 0px 19px;
+  }
+  .headline{
+    font-size: 20px;
+    margin:20px 0px;
+    font-weight: bold;
+    color: rgb(54, 2, 243);
+  }
+  .mainHeadline{
+    color:rgb(255, 0, 0);
+    font-weight: 30px;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .advertisement{
+    position: fixed;
+    bottom: 10px;
+    left:10px;
+  }
+  .advertise{
+    width:300px;
+    height:auto;
+    position: relative;
+  }
+  .close{
+    font-size: 20px;
+    position: absolute;
+    top:3px;
+    right: 5px;
+    cursor: pointer;
+  }
+  .rclose{
+    font-size: 20px;
+    position: absolute;
+    top:3px;
+    left: 5px;
+    cursor: pointer;
+  }
+  .rightadv{
+    position: fixed;
+    bottom: 10px;
+    right:10px;
+  }

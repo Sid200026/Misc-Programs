@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Euro Corporation</h1>
+        <div class="final">
+            <p class="request">Please fill up this form below so that we can contact you</p>
+            <div class="progress">
+                <div class="actual">
+                    <br>
+                    <br>
+                </div>
+                <p class="fixme">Your Progress</p>
+            </div>
+            <form method="POST" name="insurance">
+                <div class="form">
+                    <div class="show test">
+                        <div class="inp1">
+                            <label for="Name">Name</label>
+                            <label for="Name" class="error nameerr"></label>
+                            <input name="name" class="name" oninput="updateBar(15)" placeholder="Your Name..." type="text" required>
+                        </div>
+                        <div class="inp1">
+                            <label for="Name">Phone Number</label>
+                            <label for="Name" class="error phonerr"></label>
+                            <input type="number" name="phone" class="name" oninput="checkPhone()" placeholder="Your Phone Number..." required>
+                        </div>
+                        <div class="inp1">
+                            <label for="Name">Email</label>
+                            <label for="Name" class="error emailerr"></label>
+                            <input name="emailfield" class="name bottom" oninput="checkEmail()" placeholder="Your Email Address..." type="email" required>
+                        </div>
+                    </div>
+                    <div class="hide me">
+                        <div class="inp1">
+                            <label for="Name">Type of Life Insurance</label>
+                            <select required oninput="updateBar(62)" class="name" name="topic">
+                                    <option value="edu">Education Insurance</option>
+                                    <option value="pr">Post Retirement Insurance</option>
+                                    <option value="child">Child Insurance</option>
+]                            </select>
+                        </div>
+                        <div class="inp1">
+                            <label for="Name">Digi Locker Link</label>
+                            <label for="Name" class="error digierr"></label>
+                            <input oninput="updateBar(75)" name="digital" class="name" placeholder="Your Digital Account Link..." type="url" required>
+                        </div>
+                        <div class="inp1">
+                                <label for="Name">Upload your Image</label>
+                                <input oninput="updateBar(87)" name="resume" class="file" type="file" accept="image/*">
+                            </div>
+                        <div class="inp1">
+                            <label for="Name">Any past disease</label>
+                            <textarea oninput="updateBar(100)" class="text" name="disease" rows="4" placeholder="Enter any past diseases"></textarea>
+                    </div>
+                    </div>
+                </div>
+                <div class="btn hide a">
+                    <button class="submit" type="button" value="Submit" onclick=finalSubmit()>Submit</button>
+                </div>
+                <div class="btn show b">
+                        <button class="submit" type="button" value="Submit" onclick=newPage()>Other Details</button>
+                </div>
+            </form>
+        </div>
+        <div class="aftersubmit">
+            <h1 class="after">Thank you for registering with us</h1>
+            <br>
+            <h1 class="after">We will contact you shortly</h1>
+        </div>
+            <div class="footer">
+                <h1 class="right">All Rights Reserved</h1>
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Today</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="getNews()">
+    <ul>
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="#archives">Archives</a></li>
+        <li><a href="index.html">Today's News</a></li>
+        <li style="float:right"><a href="#about">Sign In</a></li>
+    </ul>
+    <h1 class="heading">News Today</h1>
+        <div class="container">
+            <div class="left small">
+                <h1 class="headline lh"></h1>
+                <a href="" class="ll">
+                    <img src="" class="img-small li">
+                </a>
+                <p class="text lt">
+                </p>
+            </div>
+            <div class="main">
+                <h1 class="mainHeadline mh"></h1>
+                <a href="" class="ml">
+                    <img src="" class="img-small large mi">
+                </a>
+                <p class="text mt1">
+                </p>
+                <p class="text mt2">
+                </p>
+            </div>
+            <div class="right small">
+                <h1 class="headline rh"></h1>
+                <a href="" class="rl">
+                    <img src="" class="img-small end ri">
+                </a>
+                <p class="text rt">
+                </p>
+            </div>
+        </div>
+    <form name="datePicker"><input type="date" name="dateInp" class="inpDate" oninput="handleDateChange()"/></form>
+    <div id="left" class="leftadv advertisement">
+        <img src="ad1.jpeg" class="advertise"><p onclick="leftClose()" class="close">X</p></img>
+    </div>
+    <div id="right" class="rightadv">
+        <img src="ad2.jpg" class="advertise"><p onclick="rightClose()" class="rclose">X</p></img>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
