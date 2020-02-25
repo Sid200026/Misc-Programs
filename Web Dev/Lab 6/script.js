@@ -3,16 +3,21 @@ const handleDateChange = () => {
     getNews(date);
 }
 
-const allNews = null;
+let allNews = null;
 const xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      allNews = this.responseText;
+      allNews = JSON.parse(this.responseText);
     }
   };
-  xhttp.open("GET", "allNews.json", true);
+  xhttp.open("GET", "https://api.myjson.com/bins/cla6k", true);
   xhttp.send();
 
+setTimeout(() => {
+    const loading = document.getElementsByClassName("loading")[0];
+    loading.style.display = 'none';
+    getNews();
+},3000);
 const fetchNews = date => {
     for(news of allNews) {
         if (news.date === date) {
@@ -24,6 +29,7 @@ const fetchNews = date => {
 
 const getNews = (date=new Date().getDate()) => {
     let news = fetchNews(date);
+    console.log(news);
     if(!news) {
         alert("No news for the given date");
         getNews();
@@ -56,6 +62,7 @@ const getNews = (date=new Date().getDate()) => {
     mi.src = news.middle.img;
     mt1.innerHTML = news.middle.text1;
     mt2.innerHTML = news.middle.text2;
+    return false;
 }
 
 const leftClose = () => {

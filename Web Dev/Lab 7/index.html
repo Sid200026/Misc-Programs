@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("button.brightred").hover(function(){
+        $("body").removeClass("green");
+        $("body").removeClass("blue");
+        $("body").addClass("red");
+      });
+      $("button.brightgreen").hover(function(){
+        $("body").removeClass("red");
+        $("body").removeClass("blue");
+        $("body").addClass("green");
+      });
+      $("button.brightblue").hover(function(){
+        $("body").removeClass("red");
+        $("body").removeClass("green");
+        $("body").addClass("blue");
+      });
+    });
+</script>
+<body>
+    <div class="container">
+        <button type="button" class="btn brightred">Red</button>
+        <button type="button" class="btn brightgreen">Green</button>
+        <button type="button" class="btn brightblue">Blue</button>
+    </div>
+</body>
+</html>

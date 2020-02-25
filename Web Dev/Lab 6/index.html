@@ -6,11 +6,11 @@
     <title>News Today</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onload="getNews()">
+<body>
     <ul>
         <li><a class="active" href="index.html">Home</a></li>
         <li><a href="#archives">Archives</a></li>
-        <li><a href="index.html">Today's News</a></li>
+        <li><a href="#" onclick="getNews()">Today's News</a></li>
         <li style="float:right"><a href="#about">Sign In</a></li>
     </ul>
     <h1 class="heading">News Today</h1>
@@ -24,6 +24,7 @@
                 </p>
             </div>
             <div class="main">
+                <img class="loading" src="Loading.gif" alt="Loading" />
                 <h1 class="mainHeadline mh"></h1>
                 <a href="" class="ml">
                     <img src="" class="img-small large mi">
