@@ -1,12 +1,15 @@
 #include <SoftwareSerial.h> // To declare a new serial
-#define first_pin 1
-#define second_pin 2
-#define third_pin 3
-#define fourth_pin 4
-#define fifth_pin 5
-#define delay_period 10 // Wait time after each game
-#define rxPin 8
-#define txPin 9
+#define first_pin 2
+#define second_pin 3
+#define third_pin 4
+#define fourth_pin 5
+#define fifth_pin 6
+#define rxPin 7
+#define txPin 8
+#define led_pin 9
+
+#define delay_period 14 // Wait time after each game
+#define wrong_penalty 0.01f // Penalty for hitting the wrong button
 
 // Declaring a new serial named s2
 // rxPin: the pin on which to receive serial data
@@ -30,6 +33,27 @@ void waitForNextRound() {
   delay(delay_period*1000); // Wait for delay_period seconds
 }
 
+void handleVictory() {
+  digitalWrite(led_pin, HIGH); // Switch on the LED for the corresponding player
+  delay(2500);
+  digitalWrite(led_pin, LOW);
+}
+
+// Check whether the user pressed other buttons
+bool checkOtherPins(int pin_no) {
+  int pin_array[] = {first_pin, second_pin, third_pin, fourth_pin, fifth_pin};
+  int pin_array_length = sizeof(pin_array)/sizeof(pin_array[0]);
+  for(int i = 0; i<pin_array_length; i++) {
+    if(pin_array[i] == pin_no)
+      continue; // Lets say the user has to press the second button. Then we don't check the output of second button from here
+    int button_state = digitalRead(pin_array[i]);
+    if(button_state == HIGH) { // If some other button is pressed return true
+      return true;
+    }
+  }
+  return false;
+}
+
 float calculateScore(int pin_no) {
   unsigned long start_time, time_difference;
   start_time = micros();
@@ -42,6 +66,10 @@ float calculateScore(int pin_no) {
       time_difference = intermediate_time - start_time;
       break;
     }
+    if(checkOtherPins(pin_no) == true) {
+      time_difference = -2;
+      break;
+    }
     // Wait for a certain period and then terminate the current note for the player
     if(intermediate_time - start_time > threshold_period) {
       time_difference = -1;
@@ -52,8 +80,10 @@ float calculateScore(int pin_no) {
   if(time_difference == -1) {
     return 0.0f;
     // Pushed the correct button
+  } else if(time_difference == -2) {
+      return score*-1.0f*wrong_penalty; // Penalty is awarded for pressing wrong buttons
   } else if(time_difference > 0) {
-    return (float)time_difference;
+      return (float)time_difference;
   }
 }
 
@@ -64,15 +94,15 @@ void setup() {
     ; // wait for serial port to connect.
   }
   // Specifying behaviour of pins
-  // TODO: INPUT vs INPUT_PULLUP
   pinMode(first_pin, INPUT);
   pinMode(second_pin, INPUT);
   pinMode(third_pin, INPUT);
   pinMode(fourth_pin, INPUT);
   pinMode(fifth_pin, INPUT);
+  pinMode(led_pin, OUTPUT);
   score = 0.0f; // Reset the score for each round
-  threshold_period = 0.0025;
-  slaveSerial.begin(38400);
+  threshold_period = 2000; // Wait period for button press (2 seconds)
+  slaveSerial.begin(9600);
   while(!slaveSerial); // Wait for the custom serial to connect
 }
 /*
@@ -81,6 +111,7 @@ void setup() {
  from the pin
  */
 void loop() {
+  digitalWrite(led_pin, LOW);
   Serial.flush(); // Wait for the serial buffer to be completely empty before executing the below codes
   // We will be reading char input from the pin ( size of char is 1 byte )
   if(Serial.available() >= 1) { // .available() method gives us the number of bytes available for reading from the Serial buffer
@@ -93,8 +124,8 @@ void loop() {
      * C : Note C4 is received
      * D : Note D4 is received
      * E : Note E4 is received
-     * P : Return score from player1 
-     * Q : Return score from player2
+     * P : Return score from player
+     * w : You won the game
      * R : Reset game
      */ 
      float current_round_score = 0.0f;
@@ -120,11 +151,12 @@ void loop() {
         current_round_score = calculateScore(fifth_pin);
         break;
       case 'P':
-        // Return score from player 1
+        // Return score from player
         slaveSerial.write(score);
         break;
-      case 'Q':
-        // Return score from player 2
+      case 'W':
+        // Player has won
+        handleVictory();
         break;
       case 'R':
         // Reset the score
