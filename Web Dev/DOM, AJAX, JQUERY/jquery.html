@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <p id="ptag">Nooo</p>
+    <h1 class="h1tag">Hii</h1>
+    <h1 class="h1tag">Hii</h1>
+    <h1 class="h1tag hi charset testset dataset">Hii</h1>
+
+    <p class="test" id="check">H<b>QQQQ</b>ii</p>
+    <p class="test" id="check">H<b>QQQQ</b>ii</p>
+    <p class="test" id="check">H<b>QQQQ</b>ii</p>
+
+    <button id="delbtn">Delete</button>
+    <button id="showbtn">Show</button>
+    <button id="showMsg">Mssg</button>
+    <button id="showClass">Show Class</button>
+    <button id="showInp">Show Inp</button>
+    <input type="text" name="check" id="testinp"></input>
+    <a rosy="hi i am rosy" href="www.google.com">Hommmeeeee</a>
+    <br>
+    <button id="changep">Change P</button>
+    <button id="changeinp">Change Inp</button>
+    <button id="changeh1">Change h1</button>
+    <img src="" alt="Hiii">
+
+    <ol>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+      </ol>
+      <button id="addlist">Add List</button>
+      <button id="addlistbf">Add List Prepend</button>
+      <button id="additem">Add Element</button>
+      <button id="addafter">Add Item Before</button>
+      <button id="addbefore">Add Item After</button>
+      <button id="rmchild">Remove child</button>
+      <br>
+      <button id="addclass">Add Class</button>
+    <script>
+        $(document).ready(function() {
+            const ptag = $("#ptag");
+            const htag = $(".h1tag");
+            $('#showbtn').click(function() {
+                $('#ptag').show();
+            })
+            ptag.text("yesssss" + " "+htag.html());
+            $('#delbtn').click(function() {
+                $('#ptag').hide();
+            })
+            $('.h1tag').on({
+                mouseenter: function(){
+                    $(this).css('background','yellow');
+                },
+                mouseleave: function(){
+                    $(this).css('background','green');
+                }
+            })
+            $('.h1tag.charset').on({
+                mouseenter: function(){
+                    $(this).css('background','red');
+                },
+                mouseleave: function(){
+                    $(this).css({'background':'wheat'});
+                }
+            })
+            $('#showMsg').click(function() {
+                $(this).css("background","yellow");
+                // alert($('.test').text());
+                alert($('.test')[2].textContent);
+            })
+            $('#showClass').click(function() {
+                alert($('.h1tag.test').attr("class"));
+            })
+            $('#showInp').click(function() {
+                alert($('#testinp').val()); // For input we use val
+            })
+            $('#changep').click(function() {
+                $('.test').html("You <b>Are a boy<b> ???")
+            })
+            $('#changeinp').click(function() {
+                $('#testinp').val("Siddharth")
+            })
+            $('#changeh1').click(function() {
+                $('.h1tag').text("siddharth");
+            })
+            $('#addlist').click(function() {
+                $('ol').append("<li>siddharth</li>").css("list-style-type","none");
+            })
+            $('#addlistbf').click(function() {
+                $('ol').prepend("<li>rosy</li>").css("list-style-type","none");
+            })
+            $('#additem').click(function() {
+                const text = $('<p></p>').text("Hi, I am Sidddieeeee");
+                $("#ptag").append(text);
+            })
+            $('#addafter').click(function() {
+                const text = $('<i></i>').text("Hi, I am Rosyyyy");
+                $("img").after(text);
+            })
+            $('#addbefore').click(function() {
+                const text = $('<p></p>').text("Hi, I am Sidddieeeee");
+                $("img").before(text);
+            })
+            $('#rmchild').mouseenter(function() {
+                // $("ol").remove();
+                $("ol").empty();
+            })
+            $('#addclass').click(function() {
+                $("li").addClass("sidddiiieeeeee");
+
+            })
+            $('#delbtn').css({"border-radius":"25px","background":"red"});
+            // alert($('a').attr("rosy"))
+        })
+    </script>
+</body>
+</html>

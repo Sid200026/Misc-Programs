@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 onclick="changeText(this)">Click on this text!</h1>
+<h1 onclick="changeText(this)">Click on this text!</h1>
+<p id = "hiii">Hiii</p>
+<div id="id">
+</div>
+
+<button id="delete">Delete</button>
+
+<script>
+function changeText(h1_desc) {
+    h1_desc.innerHTML = "Ooops!";
+    //   h1_desc.onclick = getGreeting;
+    h1_desc.setAttribute("onclick","getGreeting(this)");
+}
+
+//img.src = "test.jpeg"
+// img.setAttribute("src","floating.jpeg");
+
+// function getGreeting() {
+//     const id = document.getElementsByTagName("h1")[0];
+//     id.innerHTML = "Hiii";
+// }
+
+function getGreeting(id) {
+    id.innerHTML = "Hiii";
+}
+
+const pid = document.querySelector("#hiii");
+
+pid.addEventListener("click",check);
+
+function check() {
+    pid.innerHTML = "Ouuuuuuuuuuu";
+}
+
+// How to pass values
+
+// pid.addEventListener("click",function check() {
+//     pid.innerHTML = "Ouuuuuuuuuuu";
+// });
+
+document.write("Hellooo")
+
+const dtag = document.createElement("div");
+dtag.classList.add("hello");
+dtag.classList.remove("hiii");
+const h1tag = document.createElement("h1");
+const text = document.createTextNode("Hi I am Text");
+h1tag.appendChild(text);
+dtag.appendChild(h1tag);
+document.getElementById("id").appendChild(dtag);
+
+document.getElementById("delete").addEventListener("mouseover", function() {
+    // // dtag.removeChild(h1tag);
+    // document.getElementById("id").removeChild(dtag);
+    // // document.getElementById("id").removeAttribute("id");
+
+    // // document.getElementById("id").id = "test";
+    // document.getElementById("id").setAttribute("id","test")
+
+    h1tag.parentNode.removeChild(h1tag);
+
+});
+
+</script>
+
+</body>
+</html>
