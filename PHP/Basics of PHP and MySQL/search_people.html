@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAT 2</title>
+</head>
+<body>
+    <a href="search_people.html">Search People</a>
+    <a href="insert_data.php">Insert People</a>
+    <a href="index.php">Home</a>
+    <form name="search">
+        Name : <input oninput="handleInput(this)" type="text" name="name">
+        <p id="suggest"></p>
+    </form>
+<script>
+    let str="";
+    const ele = document.getElementById("suggest");
+    function handleInput(id) {
+        str = id.value;
+        sendRequest();
+    }
+    function sendRequest() {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            ele.innerHTML = this.responseText;
+        }
+        };
+        xhttp.open("GET", "search_people.php?q="+str, true); // true means asynchronous false means synchronous
+        xhttp.send();
+    }
+</script>
+</body>
+</html>
