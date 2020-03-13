@@ -1,11 +1,14 @@
 public class ThreadEg extends Thread {
 
+
+
     // @Override
     // public void run() {
     //     Thread cur = currentThread();
     //     System.out.println(cur.getState());
+    //     cur.setName("Siddharth");
     //     try{
-    //         Thread.sleep(5000);
+    //         Thread.sleep(1000);
     //     } catch (Exception e) {
     //         e.printStackTrace();
     //     }
@@ -16,11 +19,18 @@ public class ThreadEg extends Thread {
     //     }
     // }
     // public static void main(String[] args) {
+    //     System.out.println(currentThread());
     //     for(int i = 0; i<3;i++) {
+    //         // ThreadEg t = new ThreadEg();
     //         Thread t = new ThreadEg();
+    //         System.out.println("Starting : "+t.getState());
     //         t.start();
     //     }
     // }
+
+
+
+
 
     // @Override
     // public void run() {
@@ -44,6 +54,10 @@ public class ThreadEg extends Thread {
     //         }
     //     }
     // }
+
+    
+
+
     // static int a = 5;
     // @Override
     // public void run() {
@@ -64,45 +78,76 @@ public class ThreadEg extends Thread {
     //         try{
     //             t.join();
     //         } catch (Exception e) {}
-    //         }
     //     }
     // }
 
+
+
+
+
     static Integer a = 5;
+    static Integer b = 6;
 
-    // public synchronized void incrementA() {
+    // public static synchronized void incrementA() {
     //     a++;
     // }
 
-    // public synchronized void incrementA() {
-    //     a++;
-    // }
 
-    public void incrementA() {
-        synchronized(a){
-            a++;
+
+
+    public static void incrementA() {
+        synchronized(a) { // cannot use int a, we need reference (Integer)
+            synchronized(b) {
+                a++;
+                b++;
+            }
         }
     }
 
+
+
+
+    @Override
     public void run() {
         // Never join current thread
         System.out.println("Thread started" + currentThread().getId());
-        // try{
-        //     Thread.sleep(1000);
-        // } catch (Exception e) {
-        //     e.printStackTrace();
+        try{
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+
+        // synchronized(a) { // cannot use int a, we need reference (Integer)
+        //     synchronized(b) {
+        //         a++;
+        //         b++;
+        //     }
         // }
-        // synchronized(a){ // cannot use int a, we need reference (Integer)
-        //     a++;
+
+
+
+
+        // Instead of writing a and b, this method allows us to pass the current object instance
+        // as parameter to this. This gives us the flexibility of not writing Integer a,b
+        // synchronized(this) {
+        //     this.a+=this.b;
         // }
-        incrementA();
-        System.out.println(a);
+
+
+
+        ThreadEg.incrementA();
+
+
+
+        System.out.println(a+" "+b);
     }
     public static void main(String[] args) {
         for(int i = 0; i<5;i++) {
             Thread t = new ThreadEg();
             t.start();
-            }
+            } 
         }
     }
-// }

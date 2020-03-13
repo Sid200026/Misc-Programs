@@ -7,7 +7,7 @@ public class MultipleTryCatch {
                 int[] arr = new int[20];
                 int index = Integer.parseInt(args[1]);
                 System.out.println(arr[index]);
-            } catch (ArithmeticException | IndexOutOfBoundsException e) {
+            } catch (ArithmeticException e) {
                 e.printStackTrace(); }
             catch(Exception e) {
                 e.printStackTrace();

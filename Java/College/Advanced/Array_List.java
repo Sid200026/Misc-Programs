@@ -20,13 +20,27 @@
 //         // }
 //         // arr.addAll(arr1);
 //         // System.out.println(arr);
-//         arr.retainAll(arr1);
+//         arr.addAll(arr1);
 //         System.out.println(arr);
 //         Collections.sort(arr1, Collections.reverseOrder());
 //         // Collections.reverse(arr);
-//         arr.set(0, 10)
+//         arr.set(0, 10);
+//         System.out.println(arr);
+//         sc.close();
 //     }
 // }
+
+
+
+
+
+
+
+
+
+
+
+
 import java.util.*;
 class Array_List {
     private class Test implements Comparable<Test> {
@@ -42,7 +56,7 @@ class Array_List {
             System.out.println(id+" "+name);
         }
         @Override
-        public String toString() {
+        public String toString() { // For printing
             return id+" "+name+" "+total_marks;
         }
         @Override
@@ -104,6 +118,6 @@ class Array_List {
         System.out.println(status);
     }
 }
-// t1 , t5
-// if t1.hashcode == t2.hashcode then go for t1.equals(t5)
-// else not equal
+// // t1 , t5
+// // if t1.hashcode == t2.hashcode then go for t1.equals(t5)
+// // else not equal

@@ -4,17 +4,22 @@ public class TryCatch {
         for(String a:args) {
             System.out.println(a);
         }
-        // int a = 5;
-        // try{
-        //     int b = a/0;
-        // // } catch (Exception e) {
-        // } catch(ArithmeticException e) {
-        //     e.printStackTrace();
-        //     System.out.println("Error");
-        // } finally {
-        //     System.out.println("Always executed");
-        // }
-        // // int c = 5/0;
+        int a = 5;
+        try{
+            int b = a/0;
+        // } catch (Exception e) {
+        } catch(ArithmeticException e) {
+            e.printStackTrace();
+            System.out.println("Error");
+        } finally {
+            System.out.println("Always executed");
+        }
+        // int c = 5/0;
+
+
+
+        
+
         int[] arr = {1,3,4,6};
         try{
             int b = arr[3];
