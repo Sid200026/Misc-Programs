@@ -1,0 +1,15 @@
+{
+  "name": "async-weather",
+  "version": "1.0.0",
+  "description": "My first NPM package that fetches your weather",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manish Giri <manish.giri@outlook.com>",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.79.0",
+    "yargs": "^6.6.0"
+  }
+}

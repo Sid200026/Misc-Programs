@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat App</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 well" id="chat-well">
+            <h2 class="page-header text-center room-title"></h2>
+
+
+            <ul class="list-group messages"></ul>
+
+            <form action="" id="message-form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-comment"></i>
+                        </span>
+                        <input type="text" name="message" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-block btn-default">
+                </div>
+            </form>
+
+            <a href="/index.html" role="button" class="btn btn-danger btn-sm">Change Settings</a>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/socket.io.js"></script>
+<script src="js/QueryParams.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

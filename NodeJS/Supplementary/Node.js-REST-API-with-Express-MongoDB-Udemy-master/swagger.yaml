@@ -1,0 +1,230 @@
+swagger: '2.0'
+info:
+  description: Node.js Rest API doc
+  version: '1.0.0'
+  title: Node Rest API documentation
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: rapiddevpro@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: localhost:3002
+basePath: /api/v1
+schemes:
+- http
+paths:
+  /user/login:
+    post:
+      tags:
+        - User Module
+      summary: Login
+      description: API for Login
+      parameters:
+        - in: body
+          name: body
+          description: Login Payload
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Login Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /user/signup:
+    post:
+      tags:
+        - User Module
+      summary: Signup
+      description: API for Signup
+      parameters:
+        - in: body
+          name: body
+          description: Signup Payload
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Signup Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /product:
+    post:
+      security:
+        - Bearer: []
+      tags:
+        - Product Module
+      summary: Product API
+      description: API for creating product
+      parameters:
+        - in: body
+          name: body
+          description: Create Product Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Product'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Product Created Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Product Module
+      summary: Product API
+      description: API for fetching all products
+      parameters:
+        - name: skip
+          in: query
+          description: No.of record to be skipped for pagination
+          type: number
+          required: false
+        - name: limit
+          in: query
+          description: no. of record api should return for pagination
+          type: number
+          required: false
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Product fetched Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  '/product/{id}':
+    get:
+      security:
+        - Bearer: []
+      tags:
+      - Product Module
+      summary: Fetch Product Detail
+      description: Fetch Product Detail
+      parameters:
+        - name: id
+          in: path
+          description: Product Id
+          type: string
+          required: true
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: Product Fetched Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+    put:
+      security:
+        - Bearer: []
+      tags:
+      - Product Module
+      summary: Update Product
+      description: Update Product
+      parameters:
+        - name: id
+          in: path
+          description: Product Id
+          type: string
+          required: true
+        - in: body
+          name: body
+          description: Update Product Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Product'
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: Product Updated Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+    delete:
+      security:
+        - Bearer: []
+      tags:
+      - Product Module
+      summary: Remove Product
+      description: Remove Product
+      parameters:
+        - name: id
+          in: path
+          description: Product Id
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        204:
+          description: Product Deleted Successfully
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+  User:
+    properties:
+      email:
+        type: string
+        description: email of user
+      password:
+        type: string
+        description: password of the user
+  Product:
+    properties:
+      name:
+        type: string
+        description: product name
+      price:
+        type: number
+        description: product price
+      brand:
+        type: string
+        description: product brand
+  ApiResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object

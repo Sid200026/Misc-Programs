@@ -18,7 +18,7 @@
 ### Using this module
 
 
-`const fs = require('fs');`
+    const fs = require('fs');
 
 
 ### All file system operations have synchronous and asynchronous forms.
@@ -83,3 +83,10 @@
     '/Users/sid/Documents/Programming/NodeJS/Node Module System/command_line_args.js',
     'Siddharth'
     ]
+
+# Debugger
+
+### NodeJS comes with a built-in debugger, which can be used by
+    node inspect app.js
+
+### We would need to use debugger keyboard to pause program execution at some point. Then we can go to chrome://inspect to debug the nodejs application.

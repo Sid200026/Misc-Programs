@@ -1,0 +1,16 @@
+{
+  "name": "password-manager",
+  "version": "1.0.0",
+  "description": "Manage your passwords locally",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Manish Giri",
+  "license": "ISC",
+  "dependencies": {
+    "node-persist": "0.0.6",
+    "yargs": "^4.7.1"
+  }
+}
