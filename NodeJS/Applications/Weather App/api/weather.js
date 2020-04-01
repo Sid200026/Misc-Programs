@@ -15,22 +15,7 @@ const getWeather = async (long, lat) => {
   return res;
 };
 
-const weatherInfo = (place, displayfunc) => {
-  getLatLong(place)
-    .then(res => {
-      const long = res.data.features[0].center[0];
-      const lat = res.data.features[0].center[1];
-      getWeather(long, lat)
-        .then(res => displayfunc(place, res.data.hourly.summary))
-        .catch(() => {
-          console.log("Weather information not available");
-        });
-    })
-    .catch(() => {
-      console.log("Place information not available");
-    });
-};
-
 module.exports = {
-  weatherInfo
+  getLatLong,
+  getWeather
 };

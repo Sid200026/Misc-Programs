@@ -189,6 +189,8 @@ A combination of independent functions and arrays of functions can handle a rout
         res.send('Hello from D!')
     })
 
+We can access both query parameters and values from url using request.params.
+
 Method Description
 
 res.download() Prompt a file to be downloaded.
