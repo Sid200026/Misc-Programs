@@ -1,0 +1,206 @@
+---
+title: "Lab Assessment-1"
+output: 
+  html_document: 
+    fig_height: 4
+    highlight: pygments
+    theme: spacelab
+---
+### Register Number: 18BCE1065
+### Name: Siddharth Singha Roy
+### Dataset Name: Parkinson Disease Spiral Drawings
+
+### Design any 10 questions for data manipulation
+
+* * *
+Question-1 : Read the data and display all information about the dataset
+
+```{r}
+#Type your code here
+library(knitr)
+library(dplyr)
+library(data.table)
+library(stringr)
+library(lubridate)
+library(tidyr)
+library(ggplot2)
+data = fread("/home/siddharth/Downloads/parkinsons.data")
+head(data)
+colnames(data)
+dim(data)
+```
+
+* * *
+Question-2 : Rename column name to Name, status to Status, spread1 to Spread1 and spread2 to Spread2
+
+```{r}
+#Type your code here
+colnames(data)[1] = "Name"
+colnames(data)[21] = "Spread1"
+colnames(data)[22] = "Spread2"
+colnames(data)[18] = "Status"
+colnames(data)
+```
+
+* * *
+Question-3 : Get all name where status = 0
+
+```{r}
+#Type your code here
+filter(data, Status == 0)
+```
+
+* * *
+Question-4 : Find number of missing data for each column
+
+```{r}
+#Type your code here
+for(i in colnames(data)) {
+  print(paste("Column :", i, "Missing Values :", sum(is.na(data[, ..i])), sep=" "))
+}
+```
+* * *
+Question-5 : Compute the correlation score
+
+```{r}
+#Type your code here
+data = data[, .SD, .SDcols = which(sapply(data, is.numeric))]
+cor(data, use = "na.or.complete")
+```
+
+* * *
+Question-6 : Remove column D2
+
+```{r}
+#Type your code here
+data = select(data, -"D2")
+colnames(data)
+```
+
+* * *
+Question-7 : Shuffle the rows
+
+```{r}
+#Type your code here
+set.seed(1000)
+data[sample(nrow(data), replace = T),]
+head(data)
+```
+
+* * *
+Question-8 : Convert negative spread1 to positive
+
+```{r}
+#Type your code here
+data$Spread1 = abs(data$Spread1)
+data$Spread1
+```
+
+* * *
+Question-9 : Order dataset by PPE Ascending
+
+```{r}
+#Type your code here
+data[,][order(PPE)]
+```
+* * *
+Question-10 : Select all numeric columns and summarize its information
+
+```{r}
+#Type your code here
+summary(select(data, where(is.numeric)))
+```
+
+### Design any 5 Elementary Statistical questions for the given dataset
+
+* * *
+Question-1 : Create a contingency table for Status
+
+```{r}
+#Type your code here
+xtabs(~Status, data=data)
+```
+
+* * *
+Question-2 : Summarize all the data
+
+```{r}
+#Type your code here
+summary(data)
+```
+
+* * *
+Question-3 : 
+
+```{r}
+#Type your code here
+```
+
+* * *
+Question-4 here
+
+```{r}
+#Type your code here
+```
+* * *
+Question-5 here
+
+```{r}
+#Type your code here
+```
+
+### Design any 5 appropriate questions for data exploration
+* * *
+Question-1 : Boxplot for Status
+
+```{r}
+#Type your code here
+box<-ggplot(data,mapping=aes(x=Status,y=NHR, group=Status))+geom_boxplot()
+plot(box)
+
+# The above box plot shows some outliers for NHR when Status=1
+```
+
+* * *
+Question-2 : Histogram for NHR
+
+
+```{r}
+#Type your code here
+hist<-ggplot(data,aes(x=NHR))+geom_histogram(color="pink",fill="green")
+plot(hist)
+
+# So the column NHR is right skewed
+```
+
+* * *
+Question-3 : Jitter plot for Status and PPE
+
+```{r}
+#Type your code here
+jitter<-ggplot(data,aes(PPE,Status))+geom_point()+geom_jitter()
+plot(jitter)
+```
+
+* * *
+Question-4 : Histogram for PPE
+
+
+```{r}
+#Type your code here
+hist2<-ggplot(data,aes(x=PPE))+geom_histogram(color="pink",fill="green")
+plot(hist2)
+
+# The column contains a double hump and is well distributed over the mean
+```
+* * *
+Question-5 : Analyse Spread1 and Spread2 via count chart
+
+```{r}
+#Type your code here
+count_chart <- ggplot(data, aes(x=Spread1, y=Spread2)) +
+  geom_count(col="blue", show.legend=F)
+plot(count_chart)
+
+# Shows the value for which Spread1 and Spread2 become highly concentrated
+```
