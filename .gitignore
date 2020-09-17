@@ -4,3 +4,4 @@ a.out
 *a.out
 JavaScript/*/node_modules
 */*/*/*.class
+*/*/*.class
