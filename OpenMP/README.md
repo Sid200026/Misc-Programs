@@ -2,6 +2,11 @@
 
 The collection of compiler directives, library routines, and environment variables described in this document collectively define under the specification of the OpenMP Application Program Interface (OpenMP API) for shared-memory parallelism in C, C++ and Fortran programs
 
+```bash
+apple@Apples-MacBook-Air % clang -Xpreprocessor -fopenmp schedule.c -lomp -o schedule
+apple@Apples-MacBook-Air % ./schedule
+```
+
 ## Environment Variables
 
 - OMP_NUM_THREADS : Specify the number of threads
