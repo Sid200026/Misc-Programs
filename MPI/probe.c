@@ -15,6 +15,7 @@ int main() {
         MPI_Probe(0,32, MPI_COMM_WORLD, &status);
         int size;
         MPI_Get_count(&status, MPI_INT, &size);
+        printf("%d\n", size);
         int arr[size];
         MPI_Recv(arr, size, MPI_INT, 0, 32, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     }

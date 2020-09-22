@@ -55,23 +55,23 @@ char -> MPI_CHAR
 ### MPI_Send
 
 MPI_Send(
-    void* data,
-    int count,
-    MPI_Datatype datatype,
-    int destination,
-    int tag,
-    MPI_Comm communicator)
+void\* data,
+int count,
+MPI_Datatype datatype,
+int destination,
+int tag,
+MPI_Comm communicator)
 
 ### MPI_Recv
 
 MPI_Recv(
-    void* data,
-    int count,
-    MPI_Datatype datatype,
-    int source,
-    int tag,
-    MPI_Comm communicator,
-    MPI_Status* status)
+void* data,
+int count,
+MPI_Datatype datatype,
+int source,
+int tag,
+MPI_Comm communicator,
+MPI_Status* status)
 
 The first argument is the data buffer. The second and third arguments describe the count and type of elements that reside in the buffer. MPI_Send sends the exact count of elements, and MPI_Recv will receive at most the count of elements (more on this in the next lesson). The fourth and fifth arguments specify the rank of the sending/receiving process and the tag of the message. The sixth argument specifies the communicator and the last argument (for MPI_Recv only) provides information about the received message.
 
@@ -90,10 +90,157 @@ The length of the message. The length of the message does not have a predefined 
 ### Length of the message from the status structure MPI_Get_count
 
 MPI_Get_count(
-    MPI_Status* status,
-    MPI_Datatype datatype,
-    int* count)
+MPI_Status* status,
+MPI_Datatype datatype,
+int* count)
 
 ### MPI_Probe
 
 Get the status before using MPI_Recv
+
+### Blocking Communication
+
+The above two MPI_Send and MPI_Recv are examples of blocking communications. This means that the entire execution process is stopped unless some information is send or received.
+
+### Non-Blocking Communication
+
+#### MPI_Isend, MPI_Irecv, MPI_Request, MPI_Wait
+
+```c
+
+int MPI_Isend(
+    const void *buf,
+    int count,
+    MPI_Datatype datatype,
+    int dest,
+    int tag,
+    MPI_Comm comm,
+    MPI_Request *request)
+
+int MPI_Irecv(
+  void *buf,
+  int count,
+  MPI_Datatype datatype,
+  int source,
+  int tag,
+  MPI_Comm comm,
+  MPI_Request *request
+);
+
+int MPI_Wait(MPI_Request *request, MPI_Status *status) // Waits for an MPI request to complete
+
+```
+
+We need to use MPI_Wait on the non-blocking request before using finalize. The MPI_Wait is a blocking statement.
+
+### All the above methods are point to point communication ie. between two processors
+
+### Broadcast
+
+A broadcast is one of the standard collective communication techniques. During a broadcast, one process sends the same data to all processes in a communicator. One of the main uses of broadcasting is to send out user input to a parallel program, or send out configuration parameters to all processes.
+
+```c
+MPI_Bcast(
+    void* data,
+    int count,
+    MPI_Datatype datatype,
+    int root,
+    MPI_Comm communicator
+)
+```
+
+`MPI_Bcast(&num, 1, MPI_INT, MASTER, MPI_COMM_WORLD);`
+
+The MPI_Bcast must be available to all the processes. The process having its rank = MASTER will be responsible for broadcasting the message whereas all the other processes will listen to it.
+
+#### MPI_Barrier
+
+Used for synchronization of processes
+
+```c
+MPI_Barrier(MPI_Comm communicator)
+```
+
+### Scatter
+
+https://mpitutorial.com/tutorials/mpi-scatter-gather-and-allgather/
+
+Refer to the Scatter vs Bcast image to get the difference between MPI_Bcast and MPI_Scatter. Broadcast allows us to send the same message to all the processes whereas scatter allows us to send different messages to everyone.
+
+### Gather
+
+Opposite of scatter. It gathers value from different processes into a single process. ( Useful in parallel tasks like merge function in merge sort ).
+
+```c
+int MPI_Gather(
+  void *sendbuf,
+  int sendcnt,
+  MPI_Datatype sendtype,
+  void *recvbuf,
+  int recvcnt, // Count of elements in each receive
+  MPI_Datatype recvtype,
+  int root,
+  MPI_Comm comm
+);
+```
+
+We can even pass `NULL` in the sendbuf.
+
+### All Gather
+
+```c
+MPI_Allgather(
+    void* send_data,
+    int send_count,
+    MPI_Datatype send_datatype,
+    void* recv_data,
+    int recv_count,
+    MPI_Datatype recv_datatype,
+    MPI_Comm communicator)
+```
+
+Given a set of elements distributed across all processes, MPI_Allgather will gather all of the elements to all the processes. In the most basic sense, MPI_Allgather is an MPI_Gather followed by an MPI_Bcast. The illustration below shows how data is distributed after a call to MPI_Allgather.
+
+MPI_Allgather does not have any root process.
+
+### Reduce and AllReduce
+
+Very similar to gather except that it allows to do computations on the input buffer.
+
+```c
+MPI_Reduce(
+    void* send_data,
+    void* recv_data,
+    int count,
+    MPI_Datatype datatype,
+    MPI_Op op,
+    int root,
+    MPI_Comm communicator)
+```
+
+Similar to MPI_Gather, MPI_Reduce takes an array of input elements on each process and returns an array of output elements to the root process. The output elements contain the reduced result.
+
+```
+MPI_MAX - Returns the maximum element.
+MPI_MIN - Returns the minimum element.
+MPI_SUM - Sums the elements.
+MPI_PROD - Multiplies all elements.
+MPI_LAND - Performs a logical and across the elements.
+MPI_LOR - Performs a logical or across the elements.
+MPI_BAND - Performs a bitwise and across the bits of the elements.
+MPI_BOR - Performs a bitwise or across the bits of the elements.
+MPI_MAXLOC - Returns the maximum value and the rank of the process that owns it.
+MPI_MINLOC - Returns the minimum value and the rank of the process that owns it.
+```
+
+The difference between reduce and allreduce is the same as gather and allgather.
+
+```c
+MPI_Allreduce(
+    void* send_data,
+    void* recv_data,
+    int count,
+    MPI_Datatype datatype,
+    MPI_Op op,
+    MPI_Comm communicator)
+```
