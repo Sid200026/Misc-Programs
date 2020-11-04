@@ -4,6 +4,9 @@ class EnumExample(enum.Enum):
     notSame = "Values are not same"
     permReq = "Ask admin for permission"
 
+class EnumTest(enum.Enum):
+    hi = "Hi"
+
 print(EnumExample.noPerm)
 # EnumExample.noPerm
 
